@@ -1,15 +1,17 @@
 import logo from './logo.svg';
+import Router from "./services/router";
 import './App.css';
+
+import NavBar from "./component/navbar/navbar";
+import Footer from "./component/footer/footer";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        
+        <NavBar />
+        <Router />
+        <Footer />
       </header>
     </div>
   );
