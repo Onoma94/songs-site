@@ -1,0 +1,38 @@
+nav
+{
+	position: fixed;
+	top: 0;
+	width: 80%;
+	padding: 10px 0;
+	background-color: #4500CC;
+	text-align: center;
+	border-top: 1px solid #220066;
+	border-bottom: 1px solid #220066;
+}
+
+ul
+{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	font-size: 18px;
+	height: 35 px;
+	line-height: 200%;
+	display: inline-block;
+}
+
+ul a
+{
+	color: white;
+	text-decoration: none;
+	display: block;
+}
+
+ul li
+{
+	float: right;
+	height: 40px;
+	width: 160px;
+	border-left: 1px dashed white;
+	border-right: 1px dashed white;
+}

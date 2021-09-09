@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import Router from "./services/router";
 import './App.css';
+import './style.css';
 
 import NavBar from "./components/navBar/navBar";
 import Footer from "./components/footer/footer";
