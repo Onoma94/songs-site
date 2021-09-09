@@ -37,7 +37,7 @@ function Navbar(props) {
                     </a>
                 </li>
                 <li>
-                    <a href="/blog" className="nav-link">
+                    <a href="/contact" className="nav-link">
                         Contact
                     </a>
                 </li>

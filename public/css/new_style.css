@@ -1,0 +1,9 @@
+.nav
+{
+	width: 100%;
+	padding: 10px 0;
+	background-color: #4500CC;
+	text-align: center;
+	border-top: 1px solid #220066;
+	border-bottom: 1px solid #220066;
+}

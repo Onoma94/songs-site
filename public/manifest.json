@@ -1,6 +1,8 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Songs",
+  "name": "Songs Site",
+  "version": "0.1.0",
+  "homepage": "https://Onoma94.github.io/songs-site",
   "icons": [
     {
       "src": "favicon.ico",
@@ -22,4 +24,5 @@
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
+  
 }

@@ -2,8 +2,8 @@ import logo from './logo.svg';
 import Router from "./services/router";
 import './App.css';
 
-import NavBar from "./component/navbar/navbar";
-import Footer from "./component/footer/footer";
+import NavBar from "./components/navBar/navBar";
+import Footer from "./components/footer/footer";
 
 function App() {
   return (
