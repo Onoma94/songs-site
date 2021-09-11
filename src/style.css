@@ -1,13 +1,32 @@
-nav
+body
+{
+	background-color: #282c34;
+}
+
+topbar
 {
 	position: fixed;
-	top: 0;
-	width: 80%;
+	top: 0px;
+	height: 20px;
+}
+
+nav
+{
+	position: relative;
+	top: 0px;
 	padding: 10px 0;
 	background-color: #4500CC;
 	text-align: center;
 	border-top: 1px solid #220066;
 	border-bottom: 1px solid #220066;
+}
+
+.wrapper
+{
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	min-height: 100vh;
 }
 
 ul
