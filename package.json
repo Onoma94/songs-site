@@ -1,5 +1,6 @@
 {
   "name": "songs",
+  "homepage": "https://Onoma94.github.io/songs-site/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

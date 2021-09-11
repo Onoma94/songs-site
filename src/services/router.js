@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 
 import Home from "../pages/home";
 import Chart from "../pages/chart";
@@ -9,7 +9,7 @@ import Contact from "../pages/contact";
 const Router = () => {
     return (
       <div className="wrapper">
-        <BrowserRouter>
+        <HashRouter basename={process.env.PUBLIC_URL}>
           <Switch>
             <Route exact path="/">
               <Home />
@@ -27,7 +27,7 @@ const Router = () => {
               <Contact />
             </Route>
           </Switch>
-        </BrowserRouter>
+        </HashRouter>
       </div>
     );
   };
