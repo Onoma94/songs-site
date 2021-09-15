@@ -1,5 +1,6 @@
-import React, { Component, useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import "../../style.css";
+
 
 function Navbar(props) {
     const [currentTab, setCurrentTab] = useState(() => {

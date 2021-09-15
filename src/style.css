@@ -29,6 +29,11 @@ nav
 	min-height: 100vh;
 }
 
+ol
+{
+	display: none;
+}
+
 ul
 {
 	padding: 0;
@@ -38,6 +43,11 @@ ul
 	height: 35 px;
 	line-height: 200%;
 	display: inline-block;
+
+	@media screen and (max-width: 768px)
+	{
+		display: none;
+	}
 }
 
 ul a
@@ -51,7 +61,8 @@ ul li
 {
 	float: right;
 	height: 40px;
-	width: 160px;
+	width: 12vw;
 	border-left: 1px dashed white;
 	border-right: 1px dashed white;
 }
+
