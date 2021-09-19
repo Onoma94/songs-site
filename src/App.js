@@ -11,7 +11,7 @@ import Footer from "./components/footer/footer";
 function App() {
   return (
     <body>
-      <div className="wrapper" style={{backgroundImage: 'require(url(/footer_lodyas.png)', backgroundSize: '100%', backgroundRepeat: 'repeat'}}>
+      <div className="wrapper">
         <TopBar />
         <NavBar />
         <Router />
