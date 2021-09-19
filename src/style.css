@@ -27,6 +27,10 @@ nav
 	margin-left: auto;
 	margin-right: auto;
 	min-height: 100vh;
+	background-image: url("footer_lodyas.png");
+	background-repeat: repeat;
+	background-size: 100px;
+
 }
 
 ol
