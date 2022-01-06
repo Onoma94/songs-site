@@ -18,26 +18,31 @@ const SongList = () => {
     {
         const searchTitle = e.target.value;
         setSearchTitle(searchTitle);
-    }
+    };
 
     const retrieveSongs = () =>
     {
         SongsService.getAll()
           .then(response => {
-                setSongs(response.data);
+            setSongs(response.data);
             console.log(response.data);
           })
           .catch(e => {
             console.log(e);
           });
-    }
+    };
 
     const refreshList = () =>
     {
         retrieveSongs();
         setCurrentSong(null);
         setCurrentIndex(-1);
-    }
+    };
+
+    const setActiveSong = (song, index) => {
+        setCurrentSong(song);
+        setCurrentIndex(index);
+      };
 
     const findByTitle = () =>
     {
@@ -76,7 +81,7 @@ const SongList = () => {
                         songs && songs.map((song, index) =>
                             (
                                 <li className={"list-group-item" + (index === currentIndex ? "active" : "")}
-                                    onClick={() => this.setActiveSong(song, index)}
+                                    onClick={() => setActiveSong(song, index)}
                                     key={index}>
                                     {song.title}
                                 </li>
