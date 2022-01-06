@@ -1,12 +1,12 @@
-function Home()
+import SongList from "../components/songList";
+
+function Songs()
 {
     return(
         <div className="site-section">
-            <div className="container">
-            
-            </div>
+            <SongList />
         </div>
     )
 }
 
-export default Home;
+export default Songs;

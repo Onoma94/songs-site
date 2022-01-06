@@ -7,9 +7,9 @@ class SongsService
 		return http.get("/songs");
 	}
 	
-	create(data) 
+	get(id) 
 	{
-		return http.post("/add_songs/", data);
+		return http.get(`/songs/${id}`);
 	}
 	
 	findByTitle(title) 

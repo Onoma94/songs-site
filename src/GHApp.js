@@ -8,8 +8,9 @@ import Chart from "./pages/chart";
 import Songs from "./pages/songs";
 import Blog from "./pages/blog";
 import Contact from "./pages/contact";
-import TopBar from "./components/topBar/topBar";
-import Footer from "./components/footer/footer";
+import TopBar from "./components/topBar";
+import Footer from "./components/footer";
+import React from 'react';
 //'url(/footer_lodyas.png)'
 //"https://star-wars.pl/Layout/Bastion4/MCQ-forum.jpg")
 function App() {
