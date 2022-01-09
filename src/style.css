@@ -1,6 +1,7 @@
 body
 {
 	background-color: #282c34;
+	color: white;
 }
 
 topbar
@@ -52,6 +53,33 @@ ul
 	{
 		display: none;
 	}
+}
+
+.site-section
+{
+	margin: 16px;
+}
+
+.song-frame
+{
+	display: inline-block;
+	border-style: dashed;
+	border-width: 1px;
+}
+
+.song-title
+{
+	display: inline-block;
+	margin: 2px;
+	width: 300px;
+}
+
+.song-artistname
+{
+	display: inline-block;
+	margin: 2px;
+	font-weight: 800;
+	width: 300px;
 }
 
 ul a

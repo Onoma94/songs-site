@@ -74,22 +74,6 @@ const SongList = () => {
                 Search
                 </button>
             </div>
-            <div className="songs-container">
-                <h4>All Songs</h4>
-                <ul>
-                    {
-                        songs && songs.map((song, index) =>
-                            (
-                                <li className={"list-group-item" + (index === currentIndex ? "active" : "")}
-                                    onClick={() => setActiveSong(song, index)}
-                                    key={index}>
-                                    {song.title}
-                                </li>
-                            )
-                        )
-                    }
-                </ul>
-            </div>
             <div className="song">
                 {currentSong ? (
                 <div>
@@ -109,6 +93,21 @@ const SongList = () => {
                     <p>Please click on a Song...</p>
                 </div>
                 )}
+            </div>
+            <div className="songs-container">
+                <h4>All Songs</h4>
+                    {
+                        songs && songs.map((song, index) =>
+                            (
+                                <div className={"song-frame" /*+ (index === currentIndex ? "active" : "")*/}
+                                    onClick={() => setActiveSong(song, index)}
+                                    key={index}>
+                                    <div className="song-artistname">{song.artistName}</div>
+                                    <div className="song-title">{song.title}</div>
+                                </div>
+                            )
+                        )
+                    }
             </div>
         </div>
     )
