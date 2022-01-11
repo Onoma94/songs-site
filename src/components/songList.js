@@ -13,6 +13,8 @@ const SongList = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [songsPerPage, setSongsPerPage] = useState(50);
     
+    const plCollator = new Intl.Collator('pl');
+
     useEffect(() => {
         retrieveSongs();
       }, []);
@@ -31,8 +33,8 @@ const SongList = () => {
     {
         SongsService.getAll()
           .then(response => {
-            setSongs(response.data);
-            console.log(response.data);
+            setSongs((response.data).sort(function(a, b) {return plCollator.compare(a.artistName, b.artistName) }));
+            console.log((response.data).sort(function(a, b) {return plCollator.compare(a.artistName, b.artistName) }));
           })
           .catch(e => {
             console.log(e);
@@ -56,8 +58,8 @@ const SongList = () => {
     {
         SongsService.findByTitle(searchTitle)
           .then(response => {
-            setSongs(response.data);
-            console.log(response.data);
+            setSongs(response.data.sort(function(a, b) {return plCollator.compare(a.artistName, b.artistName) }));
+            console.log(response.data.sort(function(a, b) {return plCollator.compare(a.artistName, b.artistName) }));
           })
           .catch(e => {
             console.log(e);
