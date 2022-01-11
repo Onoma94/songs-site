@@ -82,7 +82,7 @@ ul
 	width: 300px;
 }
 
-ul a
+a
 {
 	color: white;
 	text-decoration: none;
@@ -98,3 +98,15 @@ ul li
 	border-right: 1px dashed white;
 }
 
+.pagination
+{
+	text-align: center;
+	font-weight: 700;
+	font-size: 18px;
+}
+
+.page-item
+{
+	display: inline-block;
+	margin: 2px;
+}

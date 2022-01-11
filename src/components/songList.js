@@ -1,18 +1,25 @@
 import React, { useState, useEffect } from "react";
 import SongsService from "../services/songsService";
 import { Link } from "react-router-dom";
+import Pagination from "../components/pagination";
 
 const SongList = () => {
 
 
     const [songs, setSongs] = useState([]);
     const [currentSong, setCurrentSong] = useState(null);
-    const [currentIndex, setCurrentIndex] = useState(-1);
+    /*const [currentIndex, setCurrentIndex] = useState(-1);*/
     const [searchTitle, setSearchTitle] = useState("");
+    const [currentPage, setCurrentPage] = useState(1);
+    const [songsPerPage, setSongsPerPage] = useState(50);
     
     useEffect(() => {
         retrieveSongs();
       }, []);
+
+    const indexOfLastSong = currentPage * songsPerPage;
+    const indexOfFirstSong = indexOfLastSong - songsPerPage;
+    const currentSongs = songs.slice(indexOfFirstSong, indexOfLastSong);
 
     const onChangeSearchTitle = e =>
     {
@@ -30,18 +37,19 @@ const SongList = () => {
           .catch(e => {
             console.log(e);
           });
+        setCurrentPage(1);
     };
 
     const refreshList = () =>
     {
         retrieveSongs();
         setCurrentSong(null);
-        setCurrentIndex(-1);
+        /*setCurrentIndex(-1);*/
     };
 
-    const setActiveSong = (song, index) => {
+    const setActiveSong = (song, /*index*/) => {
         setCurrentSong(song);
-        setCurrentIndex(index);
+        /*setCurrentIndex(index);*/
       };
 
     const findByTitle = () =>
@@ -54,7 +62,10 @@ const SongList = () => {
           .catch(e => {
             console.log(e);
         });
+        setCurrentPage(1);
     };
+
+    const paginate = pageNumber => setCurrentPage(pageNumber);
     
     return(
         <div className="container">
@@ -97,7 +108,7 @@ const SongList = () => {
             <div className="songs-container">
                 <h4>All Songs</h4>
                     {
-                        songs && songs.map((song, index) =>
+                        currentSongs && currentSongs.map((song, index) =>
                             (
                                 <div className={"song-frame" /*+ (index === currentIndex ? "active" : "")*/}
                                     onClick={() => setActiveSong(song, index)}
@@ -108,6 +119,7 @@ const SongList = () => {
                             )
                         )
                     }
+                <Pagination songsPerPage={songsPerPage} totalSongs={songs.length} paginate={paginate} />
             </div>
         </div>
     )

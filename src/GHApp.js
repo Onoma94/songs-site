@@ -15,7 +15,7 @@ import React from 'react';
 //"https://star-wars.pl/Layout/Bastion4/MCQ-forum.jpg")
 function App() {
   return (
-    <body>
+    <>
       <div className="wrapper">
         <TopBar />
         <HashRouter>
@@ -58,7 +58,7 @@ function App() {
         </HashRouter>
         <Footer />
       </div>
-    </body>
+    </>
   );
 }
 
