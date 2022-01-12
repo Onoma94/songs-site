@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import SongsService from "../services/songsService";
 
 const Song = ({match}) => {
-    console.log("haaaalooooo");
     const [song, setSong] = useState([]);
 
     useEffect(() => {
-        console.log("dupa");
         getSong();
     }, []);
     
