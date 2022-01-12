@@ -13,7 +13,6 @@ const Song = ({match}) => {
         SongsService.get(match.params.id)
             .then(response => {
                 setSong(response.data);
-                console.log(response.data);
             })
             .catch(e => {
                 console.log(e);
