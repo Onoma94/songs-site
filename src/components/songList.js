@@ -34,7 +34,6 @@ const SongList = () => {
         SongsService.getAll()
           .then(response => {
             setSongs((response.data).sort(function(a, b) {return plCollator.compare(a.artistName, b.artistName) }));
-            console.log((response.data).sort(function(a, b) {return plCollator.compare(a.artistName, b.artistName) }));
           })
           .catch(e => {
             console.log(e);
@@ -59,7 +58,6 @@ const SongList = () => {
         SongsService.findByTitle(searchTitle)
           .then(response => {
             setSongs(response.data.sort(function(a, b) {return plCollator.compare(a.artistName, b.artistName) }));
-            console.log(response.data.sort(function(a, b) {return plCollator.compare(a.artistName, b.artistName) }));
           })
           .catch(e => {
             console.log(e);
@@ -99,7 +97,10 @@ const SongList = () => {
                     <label>Artist Name:</label>{" "}
                     {currentSong.artistName}
                 </div>
-                <Link to={"/songs/" + currentSong.id} />
+                <Link to={`/song/${currentSong.songId}`} 
+                    className="song-btn">
+                    More information
+                </Link>
                 </div>) : (
                 <div>
                 <br />
@@ -110,11 +111,11 @@ const SongList = () => {
             <div className="songs-container">
                 <h4>All Songs</h4>
                     {
-                        currentSongs && currentSongs.map((song, index) =>
+                        currentSongs && currentSongs.map(song =>
                             (
                                 <div className={"song-frame" /*+ (index === currentIndex ? "active" : "")*/}
-                                    onClick={() => setActiveSong(song, index)}
-                                    key={index}>
+                                    onClick={() => setActiveSong(song)}
+                                    key={song.songId}>
                                     <div className="song-artistname">{song.artistName}</div>
                                     <div className="song-title">{song.title}</div>
                                 </div>

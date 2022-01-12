@@ -6,8 +6,10 @@ import { HashRouter, Route, NavLink } from 'react-router-dom';
 import Home from "./pages/home";
 import Chart from "./pages/chart";
 import Songs from "./pages/songs";
+import Song from "./pages/song";
 import Blog from "./pages/blog";
 import Contact from "./pages/contact";
+import Chujwdupie from "./pages/chujwdupie";
 import TopBar from "./components/topBar";
 import Footer from "./components/footer";
 import React from 'react';
@@ -54,6 +56,8 @@ function App() {
             <Route path="/blog" component={Blog} />
             <Route path="/contact" component={Contact} />
             <Route exact path="/" component={Home} />
+            <Route exact path="/song/:id" component={Song} />
+            <Route path="/chujwdupie" component={Chujwdupie} />
         </div>
         </HashRouter>
         <Footer />
