@@ -27,7 +27,7 @@ const Song = ({match}) => {
                     <h4>Song</h4>
                 <div>
                     <label>Title:</label>{" "}
-                    {song.title}
+                    {song.songTitle}
                 </div>
                 <div>
                     <label>Artist Name:</label>{" "}

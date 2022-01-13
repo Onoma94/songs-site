@@ -12,9 +12,9 @@ class SongsService
 		return http.get(`/songs/${id}`);
 	}
 	
-	findByTitle(title) 
+	findByTitle(songtitle) 
 	{
-    	return http.get(`/songs?title=${title}`);
+    	return http.get(`/songs?songtitle=${songtitle}`);
     }
 }
 

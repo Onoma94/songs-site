@@ -91,7 +91,7 @@ const SongList = () => {
                     <h4>Song</h4>
                 <div>
                     <label>Title:</label>{" "}
-                    {currentSong.title}
+                    {currentSong.songTitle}
                 </div>
                 <div>
                     <label>Artist Name:</label>{" "}
@@ -117,7 +117,7 @@ const SongList = () => {
                                     onClick={() => setActiveSong(song)}
                                     key={song.songId}>
                                     <div className="song-artistname">{song.artistName}</div>
-                                    <div className="song-title">{song.title}</div>
+                                    <div className="song-songtitle">{song.songTitle}</div>
                                 </div>
                             )
                         )
