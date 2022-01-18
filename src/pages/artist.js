@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import SongsService from "../services/songsService";
 
-const Song = ({match}) => {
-    const [song, setSong] = useState([]);
+const Artist = ({match}) => {
+    const [artist, setArtist] = useState([]);
 
     useEffect(() => {
-        getSong();
+        getArtist();
     }, []);
     
-    const getSong = () =>
+    const getArtist = () =>
     {
-        SongsService.getSong(match.params.id)
+        SongsService.getArtist(match.params.id)
             .then(response => {
-                setSong(response.data);
+                setArtist(response.data);
             })
             .catch(e => {
                 console.log(e);
@@ -22,28 +22,24 @@ const Song = ({match}) => {
     
     return(<div>
         {
-            song ? (
+            artist ? (
                 <div>
-                    <h4>Song</h4>
-                <div>
-                    <label>Title:</label>{" "}
-                    {song.songTitle}
-                </div>
+                    <h4>Artist</h4>
                 <div>
                     <label>Artist Name:</label>{" "}
-                    {song.artistName}
+                    {artist.artistName}
                 </div>
                 <div>
-                    <label>Song ID:</label>{" "}
-                    {song.songId}
+                    <label>Artist ID:</label>{" "}
+                    {artist.artistId}
                 </div>
                 </div>
             ) : (
                 <div>
                   <br />
-                  <p>no song chosen</p>
+                  <p>no artist chosen</p>
                 </div>)
         }
     </div>);
 }
-export default Song;
+export default Artist;

@@ -7,6 +7,8 @@ import Home from "./pages/home";
 import Chart from "./pages/chart";
 import Songs from "./pages/songs";
 import Song from "./pages/song";
+import Artists from "./pages/artists";
+import Artist from "./pages/artist";
 import Blog from "./pages/blog";
 import Contact from "./pages/contact";
 import TopBar from "./components/topBar";
@@ -34,7 +36,12 @@ function App() {
                 </li>
                 <li>
                     <NavLink to="/songs" className="nav-link">
-                        Songs List
+                        Song List
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/artists" className="nav-link">
+                        Artist List
                     </NavLink>
                 </li>
                 <li>
@@ -52,10 +59,12 @@ function App() {
         <div>
             <Route path="/chart" component={Chart} />
             <Route path="/songs" component={Songs} />
+            <Route path="/artists" component={Artists} />
             <Route path="/blog" component={Blog} />
             <Route path="/contact" component={Contact} />
             <Route exact path="/" component={Home} />
             <Route exact path="/song/:id" component={Song} />
+            <Route exact path="/artist/:id" component={Artist} />
         </div>
         </HashRouter>
         <Footer />

@@ -3,37 +3,38 @@ import SongsService from "../services/songsService";
 import { Link } from "react-router-dom";
 import Pagination from "../components/pagination";
 
-const SongList = () => {
+const ArtistList = () => {
 
 
-    const [songs, setSongs] = useState([]);
-    const [currentSong, setCurrentSong] = useState(null);
+    const [artists, setArtists] = useState([]);
+    const [currentArtist, setCurrentArtist] = useState(null);
     /*const [currentIndex, setCurrentIndex] = useState(-1);*/
-    const [searchTitle, setSearchTitle] = useState("");
+    const [searchName, setSearchName] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
-    const [songsPerPage, setSongsPerPage] = useState(50);
+    const [artistsPerPage, setArtistsPerPage] = useState(50);
     
     const plCollator = new Intl.Collator('pl');
 
     useEffect(() => {
-        retrieveSongs();
+        retrieveArtists();
       }, []);
 
-    const indexOfLastSong = currentPage * songsPerPage;
-    const indexOfFirstSong = indexOfLastSong - songsPerPage;
-    const currentSongs = songs.slice(indexOfFirstSong, indexOfLastSong);
+    const indexOfLastArtist = currentPage * artistsPerPage;
+    const indexOfFirstArtist = indexOfLastArtist - artistsPerPage;
+    const currentArtists = artists.slice(indexOfFirstArtist, indexOfLastArtist);
 
-    const onChangeSearchTitle = e =>
+    const onChangeSearchName = e =>
     {
-        const searchTitle = e.target.value;
-        setSearchTitle(searchTitle);
+        const searchName = e.target.value;
+        setSearchName(searchName);
     };
 
-    const retrieveSongs = () =>
+    const retrieveArtists = () =>
     {
-        SongsService.getAllSongs()
+        SongsService.getAllArtists()
           .then(response => {
-            setSongs((response.data).sort(function(a, b) {return plCollator.compare(a.artistName, b.artistName) }));
+            console.log(response.data);
+            setArtists((response.data).sort(function(a, b) {return plCollator.compare(a.artistName, b.artistName) }));
           })
           .catch(e => {
             console.log(e);
@@ -43,21 +44,21 @@ const SongList = () => {
 
     const refreshList = () =>
     {
-        retrieveSongs();
-        setCurrentSong(null);
+        retrieveArtists();
+        setCurrentArtist(null);
         /*setCurrentIndex(-1);*/
     };
 
-    const setActiveSong = (song, /*index*/) => {
-        setCurrentSong(song);
+    const setActiveArtist = (artist, /*index*/) => {
+        setCurrentArtist(artist);
         /*setCurrentIndex(index);*/
       };
 
-    const findByTitle = () =>
+    const findByName = () =>
     {
-        SongsService.findByTitle(searchTitle)
+        SongsService.findByName(searchName)
           .then(response => {
-            setSongs(response.data.sort(function(a, b) {return plCollator.compare(a.artistName, b.artistName) }));
+            setArtists(response.data.sort(function(a, b) {return plCollator.compare(a.artistName, b.artistName) }));
           })
           .catch(e => {
             console.log(e);
@@ -72,32 +73,28 @@ const SongList = () => {
             <input
                 type="text"
                 className="search-form"
-                placeholder="Search by title"
-                value={searchTitle}
-                onChange={onChangeSearchTitle}
+                placeholder="Search by name"
+                value={searchName}
+                onChange={onChangeSearchName}
             />
             <div className="input-group-append">
                 <button
                     className="search-btn"
                     type="button"
-                    onClick={findByTitle}
+                    onClick={findByName}
                 >
                 Search
                 </button>
             </div>
-            <div className="song">
-                {currentSong ? (
+            <div className="artist">
+                {currentArtist ? (
                 <div>
-                    <h4>Song</h4>
-                <div>
-                    <label>Title:</label>{" "}
-                    {currentSong.songTitle}
-                </div>
+                    <h4>Artist</h4>
                 <div>
                     <label>Artist Name:</label>{" "}
-                    {currentSong.artistName}
+                    {currentArtist.artistName}
                 </div>
-                <Link to={`/song/${currentSong.songId}`} 
+                <Link to={`/artist/${currentArtist.artistId}`} 
                     className="song-btn">
                     More information
                 </Link>
@@ -111,18 +108,17 @@ const SongList = () => {
             <div className="songs-container">
                 <h4>All Songs</h4>
                     {
-                        currentSongs && currentSongs.map(song =>
+                        currentArtists && currentArtists.map(artist =>
                             (
                                 <div className={"song-frame" /*+ (index === currentIndex ? "active" : "")*/}
-                                    onClick={() => setActiveSong(song)}
-                                    key={song.songId}>
-                                    <div className="song-artistname">{song.artistName}</div>
-                                    <div className="song-songtitle">{song.songTitle}</div>
+                                    onClick={() => setActiveArtist(artist)}
+                                    key={artist.artistId}>
+                                    <div className="song-songtitle">{artist.artistName}</div>
                                 </div>
                             )
                         )
                     }
-                <Pagination songsPerPage={songsPerPage} totalSongs={songs.length} paginate={paginate} />
+                <Pagination songsPerPage={artistsPerPage} totalSongs={artists.length} paginate={paginate} />
             </div>
         </div>
     )
@@ -130,4 +126,4 @@ const SongList = () => {
 
 
 
-export default SongList;
+export default ArtistList;

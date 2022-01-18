@@ -2,20 +2,36 @@ import http from "../http-common";
 
 class SongsService
 {
-	getAll()
+	getAllSongs()
 	{
 		return http.get("/songs");
 	}
 	
-	get(id) 
+	getSong(id) 
 	{
 		return http.get(`/songs/${id}`);
 	}
+
+	getAllArtists()
+	{
+		return http.get("/artists");
+	}
 	
+	getArtist(id) 
+	{
+		return http.get(`/artists/${id}`);
+	}
+
 	findByTitle(songtitle) 
 	{
     	return http.get(`/songs?songtitle=${songtitle}`);
     }
+
+	findByName(artistname) 
+	{
+    	return http.get(`/artists?artistname=${artistname}`);
+    }
+
 }
 
 export default new SongsService()
