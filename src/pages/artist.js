@@ -3,22 +3,38 @@ import SongsService from "../services/songsService";
 
 const Artist = ({match}) => {
     const [artist, setArtist] = useState([]);
+    const [songs, setSongs] = useState([]);
+
+    const plCollator = new Intl.Collator('pl');
 
     useEffect(() => {
-        getArtist();
+        retrieveArtist();
+        findArtistSongs();
     }, []);
     
-    const getArtist = () =>
+    const retrieveArtist = () =>
     {
         SongsService.getArtist(match.params.id)
             .then(response => {
                 setArtist(response.data);
+                console.log(response.data);
             })
             .catch(e => {
                 console.log(e);
             });
 
     };
+
+    const findArtistSongs = () =>
+    {
+        SongsService.findByArtistId(match.params.id)
+          .then(response => {
+            setSongs(response.data.sort(function(a, b) {return plCollator.compare(a.songTitle, b.songTitle) }));
+          })
+          .catch(e => {
+            console.log(e);
+        });
+    }
     
     return(<div>
         {
@@ -39,6 +55,18 @@ const Artist = ({match}) => {
                   <br />
                   <p>no artist chosen</p>
                 </div>)
+        }
+            <h4>Songs by the Artist</h4>
+        {
+            songs && songs.map(song =>
+                (
+                    <div className={"song-frame" /*+ (index === currentIndex ? "active" : "")*/}
+                        
+                        key={song.songId}>
+                        <div className="song-songtitle">{song.songTitle}</div>
+                    </div>
+                )
+            )
         }
     </div>);
 }

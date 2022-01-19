@@ -5,7 +5,6 @@ import Pagination from "../components/pagination";
 
 const SongList = () => {
 
-
     const [songs, setSongs] = useState([]);
     const [currentSong, setCurrentSong] = useState(null);
     /*const [currentIndex, setCurrentIndex] = useState(-1);*/
@@ -33,7 +32,8 @@ const SongList = () => {
     {
         SongsService.getAllSongs()
           .then(response => {
-            setSongs((response.data).sort(function(a, b) {return plCollator.compare(a.artistName, b.artistName) }));
+            console.log(response.data);
+            setSongs((response.data).sort(function(a, b) {return plCollator.compare(a.artistname, b.artistname) }));
           })
           .catch(e => {
             console.log(e);
@@ -57,7 +57,7 @@ const SongList = () => {
     {
         SongsService.findByTitle(searchTitle)
           .then(response => {
-            setSongs(response.data.sort(function(a, b) {return plCollator.compare(a.artistName, b.artistName) }));
+            setSongs(response.data.sort(function(a, b) {return plCollator.compare(a.artistname, b.artistname) }));
           })
           .catch(e => {
             console.log(e);
@@ -95,7 +95,7 @@ const SongList = () => {
                 </div>
                 <div>
                     <label>Artist Name:</label>{" "}
-                    {currentSong.artistName}
+                    {currentSong.artistname}
                 </div>
                 <Link to={`/song/${currentSong.songId}`} 
                     className="song-btn">
@@ -116,7 +116,7 @@ const SongList = () => {
                                 <div className={"song-frame" /*+ (index === currentIndex ? "active" : "")*/}
                                     onClick={() => setActiveSong(song)}
                                     key={song.songId}>
-                                    <div className="song-artistname">{song.artistName}</div>
+                                    <div className="song-artistname">{song.artistname}</div>
                                     <div className="song-songtitle">{song.songTitle}</div>
                                 </div>
                             )

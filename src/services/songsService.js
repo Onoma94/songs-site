@@ -32,6 +32,11 @@ class SongsService
     	return http.get(`/artists?artistname=${artistname}`);
     }
 
+	findByArtistId(artistid)
+	{
+		return http.get(`/songsbyartist/${artistid}`);
+	}
+
 }
 
 export default new SongsService()
