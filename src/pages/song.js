@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import SongsService from "../services/songsService";
 
-const Song = ({match}) => {
+function Song({match}) {
     const [song, setSong] = useState([]);
 
     useEffect(() => {
-        getSong();
+        retrieveSong();
     }, []);
-    
-    const getSong = () =>
+
+    const retrieveSong = () =>
     {
         SongsService.getSong(match.params.id)
             .then(response => {

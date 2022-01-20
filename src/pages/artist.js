@@ -17,7 +17,6 @@ const Artist = ({match}) => {
         SongsService.getArtist(match.params.id)
             .then(response => {
                 setArtist(response.data);
-                console.log(response.data);
             })
             .catch(e => {
                 console.log(e);
@@ -63,6 +62,7 @@ const Artist = ({match}) => {
                     <div className={"song-frame" /*+ (index === currentIndex ? "active" : "")*/}
                         
                         key={song.songId}>
+                        <div className="song-artistname">{song.artistname}</div>
                         <div className="song-songtitle">{song.songTitle}</div>
                     </div>
                 )

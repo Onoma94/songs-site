@@ -122,7 +122,7 @@ const SongList = () => {
                             )
                         )
                     }
-                <Pagination songsPerPage={songsPerPage} totalSongs={songs.length} paginate={paginate} />
+                <Pagination itemsPerPage={songsPerPage} totalItems={songs.length} paginate={paginate} />
             </div>
         </div>
     )

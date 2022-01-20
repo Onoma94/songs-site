@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Pagination = ({songsPerPage, totalSongs, paginate}) =>
+const Pagination = ({itemsPerPage, totalItems, paginate}) =>
 {
     const pageNumbers = [];
-    for(let i=1; i <= Math.ceil(totalSongs / songsPerPage); i++)
+    for(let i=1; i <= Math.ceil(totalItems / itemsPerPage); i++)
     {
         pageNumbers.push(i)
     }
@@ -12,9 +12,9 @@ const Pagination = ({songsPerPage, totalSongs, paginate}) =>
             {pageNumbers.map(number => 
                 (
                     <div key={number} className="page-item">
-                        <a onClick={() => paginate(number)} href="!#/songs" className="page-link">
+                        <div onClick={() => paginate(number)} /*href="!#/songs"*/ className="page-link">
                             {number}
-                        </a>
+                        </div>
                     </div>
             ))}
         </div>
