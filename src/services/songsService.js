@@ -22,6 +22,11 @@ class SongsService
 		return http.get(`/artists/${id}`);
 	}
 
+	getChart(chartno)
+	{
+		return http.get(`/charts/${chartno}`);
+	}
+
 	findByTitle(songtitle) 
 	{
     	return http.get(`/songs?songtitle=${songtitle}`);
@@ -35,6 +40,11 @@ class SongsService
 	findByArtistId(artistid)
 	{
 		return http.get(`/songsbyartist/${artistid}`);
+	}
+
+	getChartDates()
+	{
+		return http.get(`/chartdates`);
 	}
 
 }

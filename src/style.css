@@ -67,6 +67,13 @@ ul
 	border-width: 1px;
 }
 
+.chart-pos
+{
+	width: 20px;
+	display: inline-block;
+	margin: 2px;
+}
+
 .song-songtitle
 {
 	display: inline-block;
