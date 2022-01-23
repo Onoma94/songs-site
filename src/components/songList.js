@@ -33,7 +33,6 @@ const SongList = () => {
     {
         SongsService.getAllSongs()
           .then(response => {
-            console.log(response.data);
             setSongs((response.data).sort(function(a, b) {return plCollator.compare(a.artistname, b.artistname) }));
           })
           .catch(e => {

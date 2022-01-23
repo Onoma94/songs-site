@@ -7,7 +7,6 @@ function Song({match}) {
 
     useEffect(() => {
         retrieveSong();
-        console.log(song.songId);
         findChartRun();
     }, []);
 
@@ -25,12 +24,10 @@ function Song({match}) {
     
     const findChartRun = () =>
     {
-        var run = [];
         //console.log(song.songId);
         SongsService.findChartRun(match.params.id)
             .then(response => {
                 setChartRun(response.data);
-                console.log(run);
             })
             .catch(e => {
                 console.log(e);

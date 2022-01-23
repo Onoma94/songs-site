@@ -33,7 +33,6 @@ const ArtistList = () => {
     {
         SongsService.getAllArtists()
           .then(response => {
-            console.log(response.data);
             setArtists((response.data).sort(function(a, b) {return plCollator.compare(a.artistName, b.artistName) }));
           })
           .catch(e => {
@@ -101,19 +100,19 @@ const ArtistList = () => {
                 </div>) : (
                 <div>
                 <br />
-                    <p>Please click on a Song...</p>
+                    <p>Please click on an Artist...</p>
                 </div>
                 )}
             </div>
             <div className="songs-container">
-                <h4>All Songs</h4>
+                <h4>All Artists</h4>
                     {
                         currentArtists && currentArtists.map(artist =>
                             (
                                 <div className={"song-frame" /*+ (index === currentIndex ? "active" : "")*/}
                                     onClick={() => setActiveArtist(artist)}
                                     key={artist.artistId}>
-                                    <div className="song-songtitle">{artist.artistName}</div>
+                                    <div className="song-artistname">{artist.artistName}</div>
                                 </div>
                             )
                         )

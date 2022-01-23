@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SongsService from "../services/songsService";
+import SongFrame from "../components/songFrame";
 
 const Artist = ({match}) => {
     const [artist, setArtist] = useState([]);
@@ -59,12 +60,7 @@ const Artist = ({match}) => {
         {
             songs && songs.map(song =>
                 (
-                    <div className={"song-frame" /*+ (index === currentIndex ? "active" : "")*/}
-                        
-                        key={song.songId}>
-                        <div className="song-artistname">{song.artistname}</div>
-                        <div className="song-songtitle">{song.songTitle}</div>
-                    </div>
+                    <SongFrame song={song} />
                 )
             )
         }

@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 
 function SongFrame({song})
 {
-    console.log(song);
     return(
         <div className="song-frame"
             key={song.songId}>
