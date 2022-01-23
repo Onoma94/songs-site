@@ -42,6 +42,11 @@ class SongsService
 		return http.get(`/songsbyartist/${artistid}`);
 	}
 
+	findChartRun(songid)
+	{
+		return http.get(`/songcharts/${songid}`);
+	}
+
 	getChartDates()
 	{
 		return http.get(`/chartdates`);

@@ -3,9 +3,12 @@ import SongsService from "../services/songsService";
 
 function Song({match}) {
     const [song, setSong] = useState([]);
+    const [chartRun, setChartRun] = useState([]);
 
     useEffect(() => {
         retrieveSong();
+        console.log(song.songId);
+        findChartRun();
     }, []);
 
     const retrieveSong = () =>
@@ -20,6 +23,20 @@ function Song({match}) {
 
     };
     
+    const findChartRun = () =>
+    {
+        var run = [];
+        //console.log(song.songId);
+        SongsService.findChartRun(match.params.id)
+            .then(response => {
+                setChartRun(response.data);
+                console.log(run);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    }
+
     return(<div className="site-section">
         {
             song ? (
@@ -44,6 +61,17 @@ function Song({match}) {
                   <p>no song chosen</p>
                 </div>)
         }
+
+        <div className="all-chart-positions">
+            <h4>Chart positions:</h4>
+            {chartRun && chartRun.map(chart =>
+                (<div className="chart">
+                    <div className="page-item">{chart.chartno}</div>
+                    <div className="page-item">{chart.chartpos}</div>
+                </div>
+                )
+            )}
+        </div>
     </div>);
 }
 export default Song;
