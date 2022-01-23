@@ -31,7 +31,7 @@ function Song({match}) {
                 </div>
                 <div>
                     <label>Artist Name:</label>{" "}
-                    {song.artistName}
+                    {song.artistname}
                 </div>
                 <div>
                     <label>Song ID:</label>{" "}

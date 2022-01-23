@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import SongsService from "../services/songsService";
+import ChartSongFrame from "./chartSongFrame";
 
 function ChartFrame()
 {
@@ -16,23 +17,23 @@ function ChartFrame()
     {
         const number = e.target.value;
         setChartNo(number);
-        setChartDate(chartDate);
     };
 
     const retrieveChart = () =>
     {
         SongsService.getChart(chartNo)
           .then(response => {
-              console.log(response.data);
               setChart((response.data));
-          })
+              retrieveChartDate();
+          });
     }
 
     const retrieveChartDate = () =>
     {
         SongsService.getChartDates()
             .then(response => {
-                setChartDate(response.data[chartNo].chartdate);
+                //setChartDate(response.data[chartNo].chartdate);
+                setChartDate(response.data[chartNo]);
             })
     }
 
@@ -58,11 +59,7 @@ function ChartFrame()
             {
                 chart && chart.filter(function (song) { return song.chartpos < 31 }).map(song =>
                     (
-                        <div className={"song-frame"}>
-                            <div className="chart-pos">{song.chartpos}</div>
-                            <div className="song-artistname">{song.artistname}</div>
-                            <div className="song-songtitle">{song.songtitle}</div>
-                        </div>
+                        <ChartSongFrame song={song} />
                     )
                 )
             }
@@ -70,11 +67,7 @@ function ChartFrame()
             {
                 chart && chart.filter(function (song) { return song.chartpos > 30 }).map(song =>
                     (
-                        <div className={"song-frame"}>
-                            <div className="chart-pos">   </div>
-                            <div className="song-artistname">{song.artistname}</div>
-                            <div className="song-songtitle">{song.songtitle}</div>
-                        </div>
+                        <ChartSongFrame song={song} />
                     )
                 )
             }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import SongsService from "../services/songsService";
 import { Link } from "react-router-dom";
 import Pagination from "../components/pagination";
+import SongFrame from "../components/songFrame";
 
 const SongList = () => {
 
@@ -113,12 +114,7 @@ const SongList = () => {
                     {
                         currentSongs && currentSongs.map(song =>
                             (
-                                <div className={"song-frame" /*+ (index === currentIndex ? "active" : "")*/}
-                                    onClick={() => setActiveSong(song)}
-                                    key={song.songId}>
-                                    <div className="song-artistname">{song.artistname}</div>
-                                    <div className="song-songtitle">{song.songTitle}</div>
-                                </div>
+                                <SongFrame song={song} />
                             )
                         )
                     }
