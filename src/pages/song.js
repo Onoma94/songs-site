@@ -20,7 +20,7 @@ function Song({match}) {
 
     };
     
-    return(<div>
+    return(<div className="site-section">
         {
             song ? (
                 <div>

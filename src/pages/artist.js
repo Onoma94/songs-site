@@ -35,7 +35,7 @@ const Artist = ({match}) => {
         });
     }
     
-    return(<div>
+    return(<div className="site-section">
         {
             artist ? (
                 <div>
