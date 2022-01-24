@@ -32,7 +32,6 @@ function ChartFrame()
     {
         SongsService.getChartDates()
             .then(response => {
-                //setChartDate(response.data[chartNo].chartdate);
                 setChartDate(response.data[chartNo]);
             })
     }
