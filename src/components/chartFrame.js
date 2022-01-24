@@ -15,7 +15,7 @@ function ChartFrame()
 
     const onChangeSearchNo = e =>
     {
-        const number = e.target.value;
+        const number = parseInt(e.target.value);
         setChartNo(number);
     };
 
