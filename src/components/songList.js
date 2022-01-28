@@ -41,18 +41,6 @@ const SongList = () => {
         setCurrentPage(1);
     };
 
-    const refreshList = () =>
-    {
-        retrieveSongs();
-        setCurrentSong(null);
-        /*setCurrentIndex(-1);*/
-    };
-
-    const setActiveSong = (song, /*index*/) => {
-        setCurrentSong(song);
-        /*setCurrentIndex(index);*/
-      };
-
     const findByTitle = () =>
     {
         SongsService.findByTitle(searchTitle)

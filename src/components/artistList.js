@@ -41,18 +41,6 @@ const ArtistList = () => {
         setCurrentPage(1);
     };
 
-    const refreshList = () =>
-    {
-        retrieveArtists();
-        setCurrentArtist(null);
-        /*setCurrentIndex(-1);*/
-    };
-
-    const setActiveArtist = (artist, /*index*/) => {
-        setCurrentArtist(artist);
-        /*setCurrentIndex(index);*/
-      };
-
     const findByName = () =>
     {
         SongsService.findByName(searchName)
@@ -110,7 +98,7 @@ const ArtistList = () => {
                         currentArtists && currentArtists.map(artist =>
                             (
                                 <div className={"song-frame" /*+ (index === currentIndex ? "active" : "")*/}
-                                    onClick={() => setActiveArtist(artist)}
+                                    onClick={() => setCurrentArtist(artist)}
                                     key={artist.artistId}>
                                     <div className="song-artistname">{artist.artistName}</div>
                                 </div>

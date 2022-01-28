@@ -42,14 +42,25 @@ class SongsService
 		return http.get(`/songsbyartist/${artistid}`);
 	}
 
+	/* deprecated */
 	findChartRun(songid)
 	{
 		return http.get(`/songcharts/${songid}`);
 	}
 
+	getChartRun(songid)
+	{
+		return http.get(`/chartrun/${songid}`);
+	}
+
 	getChartDates()
 	{
 		return http.get(`/chartdates`);
+	}
+
+	getChartDate(chartno)
+	{
+		return http.get(`/chartdates/${chartno}`);
 	}
 
 }

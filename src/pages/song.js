@@ -7,6 +7,7 @@ function Song({match}) {
 
     useEffect(() => {
         retrieveSong();
+        console.log("uzyjEfekt");
         findChartRun();
     }, []);
 
@@ -24,8 +25,7 @@ function Song({match}) {
     
     const findChartRun = () =>
     {
-        //console.log(song.songId);
-        SongsService.findChartRun(match.params.id)
+        SongsService.getChartRun(match.params.id)
             .then(response => {
                 setChartRun(response.data);
             })
@@ -59,15 +59,25 @@ function Song({match}) {
                 </div>)
         }
 
+            <h4>Statistics:</h4>
+            {(chartRun.length > 0) ?
+                (
+                <div><div>First sighted: {chartRun[0].chartno} ({chartRun[0].chartdate})</div>
+                <div>Last sighted: {chartRun[chartRun.length - 1].chartno} ({chartRun[chartRun.length - 1].chartdate})</div>
+                <div>Total points: </div>
+                <div>Weeks on chart (Top 30): {chartRun.filter((ch) => {return (ch.chartpos < 31)}).length}</div>
+                </div>
+            ) : (<div></div>)}
+
         <div className="all-chart-positions">
             <h4>Chart positions:</h4>
-            {chartRun && chartRun.map(chart =>
-                (<div className="chart">
-                    <div className="page-item">{chart.chartno}</div>
-                    <div className="page-item">{chart.chartpos}</div>
+                {chartRun && chartRun.map(chart =>
+                (<div className="chart" key={chart.chartno}>
+                <div className="page-item">{chart.chartno}</div>
+                <div className="page-item">{chart.chartpos}</div>
                 </div>
                 )
-            )}
+                )}
         </div>
     </div>);
 }
