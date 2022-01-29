@@ -8,7 +8,6 @@ const ArtistList = () => {
 
     const [artists, setArtists] = useState([]);
     const [currentArtist, setCurrentArtist] = useState(null);
-    /*const [currentIndex, setCurrentIndex] = useState(-1);*/
     const [searchName, setSearchName] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const [artistsPerPage, setArtistsPerPage] = useState(50);
@@ -97,11 +96,11 @@ const ArtistList = () => {
                     {
                         currentArtists && currentArtists.map(artist =>
                             (
-                                <div className={"song-frame" /*+ (index === currentIndex ? "active" : "")*/}
+                                <Link to={`/artist/${artist.artistId}`} className={"song-frame"}
                                     onClick={() => setCurrentArtist(artist)}
                                     key={artist.artistId}>
                                     <div className="song-artistname">{artist.artistName}</div>
-                                </div>
+                                </Link>
                             )
                         )
                     }

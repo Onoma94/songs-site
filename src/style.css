@@ -18,8 +18,7 @@ nav
 	padding: 10px 0;
 	background-color: #4500CC;
 	text-align: center;
-	border-top: 1px solid #220066;
-	border-bottom: 1px solid #220066;
+	box-shadow: #220066 3px 3px 3px 0px inset, #220066 -3px -3px 3px 0px inset;
 }
 
 .wrapper

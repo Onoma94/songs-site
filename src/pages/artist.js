@@ -40,13 +40,13 @@ const Artist = ({match}) => {
         {
             artist ? (
                 <div>
-                    <h4>Artist</h4>
+                    <h3>Artist</h3>
                 <div>
-                    <label>Artist Name:</label>{" "}
+                    <label>Artist Name: </label>
                     {artist.artistName}
                 </div>
                 <div>
-                    <label>Artist ID:</label>{" "}
+                    <label>Artist ID: </label>
                     {artist.artistId}
                 </div>
                 </div>

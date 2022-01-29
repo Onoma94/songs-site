@@ -8,7 +8,6 @@ const SongList = () => {
 
     const [songs, setSongs] = useState([]);
     const [currentSong, setCurrentSong] = useState(null);
-    /*const [currentIndex, setCurrentIndex] = useState(-1);*/
     const [searchTitle, setSearchTitle] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const [songsPerPage, setSongsPerPage] = useState(50);
@@ -76,13 +75,13 @@ const SongList = () => {
             <div className="song">
                 {currentSong ? (
                 <div>
-                    <h4>Song</h4>
+                    <h3>Song</h3>
                 <div>
-                    <label>Title:</label>{" "}
+                    <label>Title: </label>
                     {currentSong.songTitle}
                 </div>
                 <div>
-                    <label>Artist Name:</label>{" "}
+                    <label>Artist Name: </label>
                     {currentSong.artistname}
                 </div>
                 <Link to={`/song/${currentSong.songId}`} 

@@ -9,31 +9,35 @@ function ChartFrame()
     const [chartDate, setChartDate] = useState("");
 
     useEffect(() => {
-        retrieveChart();
+        retrieveChart(chartNo);
         retrieveChartDate();
     }, []);
 
-    const onChangeSearchNo = e =>
+    const retrieveChart = (chartNumber) =>
     {
-        const number = parseInt(e.target.value);
-        setChartNo(number);
-    };
-
-    const retrieveChart = () =>
-    {
-        SongsService.getChart(chartNo)
+        SongsService.getChart(chartNumber)
           .then(response => {
               setChart((response.data));
-              retrieveChartDate();
+              retrieveChartDate(chartNumber);
           });
     }
 
-    const retrieveChartDate = () =>
+    const retrieveChartDate = (chartNumber) =>
     {
         SongsService.getChartDates()
             .then(response => {
-                setChartDate(response.data[chartNo]);
+                setChartDate(response.data[chartNumber]);
             })
+    }
+
+    const buttonClick = () =>
+    {
+        let input = parseInt(document.querySelector("input").value);
+        if (!(isNaN(input)))
+        {
+            setChartNo(input);
+            retrieveChart(input);
+        }
     }
 
     return(
@@ -42,14 +46,12 @@ function ChartFrame()
                 type="text"
                 className="search-form"
                 placeholder="Search by chart number"
-                value={chartNo}
-                onChange={onChangeSearchNo}
             />
             <div className="input-group-append">
                 <button
                     className="search-btn"
                     type="button"
-                    onClick={retrieveChart}
+                    onClick={buttonClick}
                 >
                 Search
                 </button>

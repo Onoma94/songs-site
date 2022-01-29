@@ -38,17 +38,17 @@ function Song({match}) {
         {
             song ? (
                 <div>
-                    <h4>Song</h4>
+                    <h3>Song</h3>
                 <div>
-                    <label>Title:</label>{" "}
+                    <label>Title: </label>
                     {song.songTitle}
                 </div>
                 <div>
-                    <label>Artist Name:</label>{" "}
+                    <label>Artist Name: </label>
                     {song.artistname}
                 </div>
                 <div>
-                    <label>Song ID:</label>{" "}
+                    <label>Song ID: </label>
                     {song.songId}
                 </div>
                 </div>
@@ -59,22 +59,36 @@ function Song({match}) {
                 </div>)
         }
 
-            <h4>Statistics:</h4>
+            <h3>Chart statistics:</h3>
             {(chartRun.length > 0) ?
                 (
-                <div><div>First sighted: {chartRun[0].chartno} ({chartRun[0].chartdate})</div>
-                <div>Last sighted: {chartRun[chartRun.length - 1].chartno} ({chartRun[chartRun.length - 1].chartdate})</div>
-                <div>Total points: </div>
-                <div>Weeks on chart (Top 30): {chartRun.filter((ch) => {return (ch.chartpos < 31)}).length}</div>
+                <div>
+                    <div>
+                        <label>First sighted: </label>
+                        {chartRun[0].chartno} ({chartRun[0].chartdate})
+                    </div>
+                    <div>
+                        <label>Last sighted: </label>
+                        {chartRun[chartRun.length - 1].chartno} ({chartRun[chartRun.length - 1].chartdate})
+                    </div>
+                    <div>
+                        <label>Total points: </label>
+                    </div>
+                    <div>
+                        <label>Weeks on chart (Top 30): </label>
+                        {chartRun.filter((ch) => {return (ch.chartpos < 31)}).length}
+                    </div>
                 </div>
             ) : (<div></div>)}
 
         <div className="all-chart-positions">
-            <h4>Chart positions:</h4>
+            <h3>Chart positions:</h3>
                 {chartRun && chartRun.map(chart =>
                 (<div className="chart" key={chart.chartno}>
                 <div className="page-item">{chart.chartno}</div>
-                <div className="page-item">{chart.chartpos}</div>
+                <div className="page-item">{chart.chartdate}</div>                
+                <div className="page-item">{(chart.chartpos === 31) ?
+                 ("bubbling under") : chart.chartpos}</div>
                 </div>
                 )
                 )}
