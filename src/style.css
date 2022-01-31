@@ -16,6 +16,7 @@ nav
 	position: relative;
 	top: 0px;
 	padding: 10px 0;
+	width: 100%;
 	background-color: #4500CC;
 	text-align: center;
 	box-shadow: #220066 3px 3px 3px 0px inset, #220066 -3px -3px 3px 0px inset;
@@ -23,13 +24,38 @@ nav
 
 .wrapper
 {
-	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
-	min-height: 100vh;
 	background-image: url("footer_lodyas.png");
 	background-repeat: repeat;
 	background-size: 100px;
+	min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+
+	.wrapper
+	{
+		width: 90%;
+	}
+
+	.page-item
+	{
+		margin: 2px;
+	}
+
+	.site-section
+	{
+		margin: 16px;
+	}
+}
+
+@media (min-width: 1024px) {
+
+	.wrapper
+	{
+		width: 80%;
+	}
 
 }
 
@@ -44,19 +70,19 @@ ul
 	margin: 0;
 	list-style-type: none;
 	font-size: 18px;
-	height: 35 px;
+	height: 40px;
 	line-height: 200%;
 	display: inline-block;
-
-	@media screen and (max-width: 768px)
-	{
-		display: none;
-	}
+	width: 100%;
 }
 
-.site-section
+ul li
 {
-	margin: 16px;
+	display: inline-block;
+	margin: auto;
+	width: 15%;
+	border-left: 1px dashed white;
+	border-right: 1px dashed white;
 }
 
 .song-frame
@@ -94,16 +120,6 @@ a
 	text-decoration: none;
 	display: block;
 }
-
-ul li
-{
-	float: right;
-	height: 40px;
-	width: 12vw;
-	border-left: 1px dashed white;
-	border-right: 1px dashed white;
-}
-
 .pagination
 {
 	text-align: center;
@@ -114,5 +130,4 @@ ul li
 .page-item
 {
 	display: inline-block;
-	margin: 2px;
 }
