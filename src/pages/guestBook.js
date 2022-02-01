@@ -1,7 +1,8 @@
-function Blog()
+function GuestBook()
 {
     return(
         <div className="site-section">
+            This page will contain a guest book.
             <div className="container">
             
             </div>
@@ -9,4 +10,4 @@ function Blog()
     )
 }
 
-export default Blog;
+export default GuestBook;

@@ -7,7 +7,6 @@ const ArtistList = () => {
 
 
     const [artists, setArtists] = useState([]);
-    const [currentArtist, setCurrentArtist] = useState(null);
     const [searchName, setSearchName] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const [artistsPerPage, setArtistsPerPage] = useState(50);
@@ -72,32 +71,13 @@ const ArtistList = () => {
                 Search
                 </button>
             </div>
-            <div className="artist">
-                {currentArtist ? (
-                <div>
-                    <h4>Artist</h4>
-                <div>
-                    <label>Artist Name:</label>{" "}
-                    {currentArtist.artistName}
-                </div>
-                <Link to={`/artist/${currentArtist.artistId}`} 
-                    className="song-btn">
-                    More information
-                </Link>
-                </div>) : (
-                <div>
-                <br />
-                    <p>Please click on an Artist...</p>
-                </div>
-                )}
-            </div>
+            <p>Select an artist or use search!</p>
             <div className="songs-container">
                 <h4>All Artists</h4>
                     {
                         currentArtists && currentArtists.map(artist =>
                             (
                                 <Link to={`/artist/${artist.artistId}`} className={"song-frame"}
-                                    onClick={() => setCurrentArtist(artist)}
                                     key={artist.artistId}>
                                     <div className="song-artistname">{artist.artistName}</div>
                                 </Link>

@@ -1,4 +1,3 @@
-//import logo from './logo.svg';
 import './App.css';
 import './style.css';
 import { HashRouter, Route, NavLink } from 'react-router-dom';
@@ -9,13 +8,12 @@ import Songs from "./pages/songs";
 import Song from "./pages/song";
 import Artists from "./pages/artists";
 import Artist from "./pages/artist";
-import Blog from "./pages/blog";
+import GuestBook from "./pages/guestBook";
 import Contact from "./pages/contact";
 import TopBar from "./components/topBar";
 import Footer from "./components/footer";
 import React from 'react';
-//'url(/footer_lodyas.png)'
-//"https://star-wars.pl/Layout/Bastion4/MCQ-forum.jpg")
+
 function App() {
   return (
     <>
@@ -46,7 +44,7 @@ function App() {
                 </li>
                 <li>
                     <NavLink to="/blog" className="nav-link">
-                        Blog
+                        Guest Book
                     </NavLink>
                 </li>
                 <li>
@@ -60,7 +58,7 @@ function App() {
             <Route path="/chart" component={Chart} />
             <Route path="/songs" component={Songs} />
             <Route path="/artists" component={Artists} />
-            <Route path="/blog" component={Blog} />
+            <Route path="/blog" component={GuestBook} />
             <Route path="/contact" component={Contact} />
             <Route exact path="/" component={Home} />
             <Route exact path="/song/:id" component={Song} />

@@ -131,3 +131,9 @@ a
 {
 	display: inline-block;
 }
+
+.input-group-append
+{
+	margin: 2px;
+	display: inline-block;
+}

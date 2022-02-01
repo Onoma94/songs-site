@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import SongsService from "../services/songsService";
-import { Link } from "react-router-dom";
 import Pagination from "../components/pagination";
 import SongFrame from "../components/songFrame";
 
 const SongList = () => {
 
     const [songs, setSongs] = useState([]);
-    const [currentSong, setCurrentSong] = useState(null);
     const [searchTitle, setSearchTitle] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const [songsPerPage, setSongsPerPage] = useState(50);
@@ -72,29 +70,7 @@ const SongList = () => {
                 Search
                 </button>
             </div>
-            <div className="song">
-                {currentSong ? (
-                <div>
-                    <h3>Song</h3>
-                <div>
-                    <label>Title: </label>
-                    {currentSong.songTitle}
-                </div>
-                <div>
-                    <label>Artist Name: </label>
-                    {currentSong.artistname}
-                </div>
-                <Link to={`/song/${currentSong.songId}`} 
-                    className="song-btn">
-                    More information
-                </Link>
-                </div>) : (
-                <div>
-                <br />
-                    <p>Please click on a Song...</p>
-                </div>
-                )}
-            </div>
+            <p>Select a song or use search!</p>
             <div className="songs-container">
                 <h4>All Songs</h4>
                     {
