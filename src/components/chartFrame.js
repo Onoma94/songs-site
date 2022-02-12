@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import SongsService from "../services/songsService";
 import ChartSongFrame from "./chartSongFrame";
 
-function ChartFrame()
+function ChartFrame({chartno})
 {
-    const [chartNo, setChartNo] = useState(791);
+
+    const [chartNo, setChartNo] = useState(chartno);
     const [chart, setChart] = useState([]);
     const [chartDate, setChartDate] = useState("");
 

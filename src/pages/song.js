@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SongsService from "../services/songsService";
+import { Link } from "react-router-dom";
 
 function Song({match}) {
     const [song, setSong] = useState([]);
@@ -7,7 +8,6 @@ function Song({match}) {
 
     useEffect(() => {
         retrieveSong();
-        console.log("uzyjEfekt");
         findChartRun();
     }, []);
 
@@ -45,7 +45,7 @@ function Song({match}) {
                 </div>
                 <div>
                     <label>Artist Name: </label>
-                    {song.artistname}
+                    <Link to={`/artist/${song.artistId}`} className="song-artistname">{song.artistname}</Link>
                 </div>
                 <div>
                     <label>Song ID: </label>
@@ -65,11 +65,15 @@ function Song({match}) {
                 <div>
                     <div>
                         <label>First sighted: </label>
-                        {chartRun[0].chartno} ({chartRun[0].chartdate})
+                        <Link to={`/chart/${chartRun[0].chartno}`}>
+                            {chartRun[0].chartno} ({chartRun[0].chartdate})
+                        </Link>
                     </div>
                     <div>
                         <label>Last sighted: </label>
+                        <Link to={`/chart/${chartRun[chartRun.length - 1].chartno}`}>
                         {chartRun[chartRun.length - 1].chartno} ({chartRun[chartRun.length - 1].chartdate})
+                        </Link>
                     </div>
                     <div>
                         <label>Total points: </label>
@@ -84,12 +88,14 @@ function Song({match}) {
         <div className="all-chart-positions">
             <h3>Chart positions:</h3>
                 {chartRun && chartRun.map(chart =>
-                (<div className="chart" key={chart.chartno}>
-                <div className="page-item">{chart.chartno}</div>
-                <div className="page-item">{chart.chartdate}</div>                
-                <div className="page-item">{(chart.chartpos === 31) ?
-                 ("bubbling under") : chart.chartpos}</div>
-                </div>
+                (<Link to={`/chart/${chart.chartno}`}>
+                    <div className="chart" key={chart.chartno}>
+                    <div className="page-item">{chart.chartno}</div>
+                    <div className="page-item">{chart.chartdate}</div>                
+                    <div className="page-item">{(chart.chartpos === 31) ?
+                    ("bubbling under") : chart.chartpos}</div>
+                    </div>
+                </Link>
                 )
                 )}
         </div>

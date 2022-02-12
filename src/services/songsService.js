@@ -63,6 +63,11 @@ class SongsService
 		return http.get(`/chartdates/${chartno}`);
 	}
 
+	getGuestBook()
+	{
+		return http.get(`/guestbook`);
+	}
+
 }
 
 export default new SongsService()

@@ -13,6 +13,7 @@ import Contact from "./pages/contact";
 import TopBar from "./components/topBar";
 import Footer from "./components/footer";
 import React from 'react';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/chart" className="nav-link">
+                    <NavLink to="/chart/791" className="nav-link">
                         My Charts
                     </NavLink>
                 </li>
@@ -55,7 +56,9 @@ function App() {
             </ul>
         </nav>
         <div>
-            <Route path="/chart" component={Chart} />
+
+            <Route exact path="/chart/:id" component={Chart} />
+            <Route exact path="/chart">{<Redirect to="/chart/791" />}</Route>
             <Route path="/songs" component={Songs} />
             <Route path="/artists" component={Artists} />
             <Route path="/blog" component={GuestBook} />
