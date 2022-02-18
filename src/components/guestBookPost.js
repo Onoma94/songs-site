@@ -1,6 +1,5 @@
 function GuestBookPost(post)
 {
-    console.log(post);
     return(
         <div className="post" key={post.postId}>
             <div className="post-content">{post.postContent}</div>

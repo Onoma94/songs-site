@@ -68,6 +68,11 @@ class SongsService
 		return http.get(`/guestbook`);
 	}
 
+	sendGuestBookPost(data)
+	{
+		return http.post(`/guestbook`, data);
+	}
+
 }
 
 export default new SongsService()
