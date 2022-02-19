@@ -20,6 +20,7 @@ function GuestBook()
     const handleInputChange = event => {
         const { name, value } = event.target;
         setPost({ ...post, [name]: value });
+        console.log(post);
       };
 
     const retrieveGuestBook = () =>
@@ -32,22 +33,25 @@ function GuestBook()
 
     const sendPost = () =>
     {
-        let data = {
-            postContent: post.postContent,
-            postAuthor: post.postAuthor,
-            postDate: new Date().toISOString()
-        }
-        SongsService.sendGuestBookPost(data).then(response =>
-            {
+        if(post.postAuthor != "" || post.postContent != "")
+        {
+            let data = {
+                postContent: post.postContent,
+                postAuthor: post.postAuthor,
+                postDate: new Date().toISOString()
+            }
+            SongsService.sendGuestBookPost(data).then(response =>
+                {
                 setPost({
                     postContent: response.data.postContent,
                     postAuthor: response.data.postAuthor,
                     postDate: response.data.postDate
                 });
                 console.log(response.data);
-            }
-        );
-        setSubmitted(true);
+                }
+            );
+            setSubmitted(true);
+        }
     };
 
     const newPost = () => {
@@ -64,6 +68,7 @@ function GuestBook()
             <input
                 type="text"
                 id="postContent"
+                name="postContent" 
                 className="post-form-content"
                 placeholder="Write your message here"
                 onChange={handleInputChange}
@@ -71,6 +76,7 @@ function GuestBook()
             <input
                 type="text"
                 id="postAuthor"
+                name="postAuthor"
                 className="post-form-author"
                 placeholder="Your nickname"
                 onChange={handleInputChange}
