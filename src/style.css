@@ -22,14 +22,28 @@ nav
 	box-shadow: #220066 3px 3px 3px 0px inset, #220066 -3px -3px 3px 0px inset;
 }
 
+footer
+{
+	position: absolute;
+	display: block;
+	bottom: -34px;
+	width: 100%;
+	padding: 10px 0;
+	font-size: 10px;
+	background-color: #4500CC;
+	text-align: center;
+	box-shadow: #220066 3px 3px 3px 0px inset, #220066 -3px -3px 3px 0px inset;
+}
+
 .wrapper
 {
+	position: relative;
 	margin-left: auto;
 	margin-right: auto;
 	background-image: url("footer_lodyas.png");
 	background-repeat: repeat;
 	background-size: 100px;
-	min-height: 100vh;
+	min-height: 97vh;
 }
 
 ol
@@ -141,7 +155,7 @@ a
 	width: 90%;
 	height: 200px;
 	display: block;
-	resize: both;
+	resize: vertical;
 }
 
 @media (min-width: 768px) {
